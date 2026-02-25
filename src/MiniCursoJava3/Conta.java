@@ -9,12 +9,10 @@ public class Conta {
     private LocalDateTime dataAbertura;
     private Cliente cliente;
 
-    // Construtor
     public Conta(double saldo) {
         this.saldo = saldo;
     }
 
-    // Métodos de negócio
     public void depositar(double valor) {
         this.saldo += valor;
     }
@@ -31,7 +29,6 @@ public class Conta {
         return this.saldo;
     }
 
-    // Getters e Setters exigidos pelo TesteConta
     public int getAgencia() { return agencia; }
     public void setAgencia(int agencia) { this.agencia = agencia; }
 
