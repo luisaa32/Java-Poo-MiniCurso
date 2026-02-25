@@ -1,6 +1,6 @@
 package MiniCursoJava3;
 
-import java.util.Scanner; // Import necessário para ler dados
+import java.util.Scanner;
 import java.time.LocalDateTime;
 
 public class TesteConta {
@@ -9,7 +9,6 @@ public class TesteConta {
 
         System.out.println("--- Cadastro de Conta ---");
 
-        // Lendo dados da Conta
         System.out.print("Digite o saldo inicial: ");
         double saldoInicial = leitor.nextDouble();
         Conta cc = new Conta(saldoInicial);
@@ -20,9 +19,9 @@ public class TesteConta {
         System.out.print("Digite o número da conta: ");
         cc.setNumero(leitor.nextInt());
 
-        leitor.nextLine(); // Limpar o buffer do teclado
+        leitor.nextLine(); 
 
-        // Lendo dados do Cliente
+        // entrada dados cliente
         System.out.print("Digite o nome do cliente: ");
         String nome = leitor.nextLine();
 
@@ -31,24 +30,23 @@ public class TesteConta {
 
         System.out.print("O cliente tem nome sujo? (true/false): ");
         boolean nomeSujo = leitor.nextBoolean();
-
-        // Associando os dados inseridos
+        //dados
         cc.setDataAbertura(LocalDateTime.now());
         cc.setCliente(new Cliente(nome, idade, nomeSujo));
 
-        // Exibindo os resultados
+        // resultados
         System.out.println("\n--- Dados Cadastrados ---");
         System.out.println("Saldo: " + cc.recuperarSaldo());
         System.out.println("Cliente: " + cc.getCliente().getNome());
         System.out.println("Data de Abertura: " + cc.getDataAbertura());
 
-        // Operação de saque
+        // operacao do saque
         System.out.print("\nQuanto deseja retirar? ");
         double valorSaque = leitor.nextDouble();
         cc.retirar(valorSaque);
 
         System.out.println("Novo saldo após saque: " + cc.recuperarSaldo());
 
-        leitor.close(); // Fecha o scanner
+        leitor.close();
     }
 }
